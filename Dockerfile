@@ -22,6 +22,10 @@ RUN chmod +x /wait
 # Copy project code
 WORKDIR /app
 COPY mastermind /app
-COPY scripts /app
 
-CMD /wait && ./start.sh
+WORKDIR /script
+COPY scripts /script
+
+WORKDIR /app
+
+CMD /wait && /script/start.sh

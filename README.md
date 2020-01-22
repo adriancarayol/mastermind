@@ -38,8 +38,8 @@ After that, you'll be able to run the API REST with the following commands:
    ```
   or
   ```bash
-  docker-compose -f docker-compose.dev.yaml build
-  docker-compose -f docker-compose.dev.yaml up -d
+  docker-compose -f docker-compose.dev.yml build
+  docker-compose -f docker-compose.dev.yml up -d
   ```
 
 * For **pre-production** environment:
@@ -48,8 +48,8 @@ After that, you'll be able to run the API REST with the following commands:
   ```
   or
   ```bash
-  docker-compose -f docker-compose.preprod.yaml build
-  docker-compose -f docker-compose.preprod.yaml up -d
+  docker-compose -f docker-compose.preprod.yml build
+  docker-compose -f docker-compose.preprod.yml up -d
   ```
 
 * For **production** environment:
@@ -58,8 +58,8 @@ After that, you'll be able to run the API REST with the following commands:
   ```
   or
   ```bash
-  docker-compose -f docker-compose.prod.yaml build
-  docker-compose -f docker-compose.prod.yaml up -d
+  docker-compose -f docker-compose.prod.yml build
+  docker-compose -f docker-compose.prod.yml up -d
   ```
 
 #### Checking logs
