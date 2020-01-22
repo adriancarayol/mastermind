@@ -10,9 +10,18 @@ ENV PYTHONUNBUFFERED=1 \
 RUN pip install "poetry==$POETRY_VERSION"
 
 # Copy poetry files
+WORKDIR /deps
+COPY poetry.lock pyproject.toml /deps/
+
+RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
+
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
+
+# Copy project code
 WORKDIR /app
-COPY poetry.lock pyproject.toml /app/
-
-RUN poetry config virtualenvs.create false --no-interaction --no-ansi
-
 COPY mastermind /app
+COPY scripts /app
+
+CMD /wait && ./start.sh
