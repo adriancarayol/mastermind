@@ -76,14 +76,22 @@ docker logs cf81984103dc
 
 ## Running the tests
 ```bash
+$ .../mastermind/: pytest
 ```
+With coverage
+```bsah
+.../mastermind/: pytest --cov=.
+```
+
+## Principal endpoints
+* Auth: http://host:port/auth/
+* Users http://host:port/users
+* Games http://host:port/games
 
 ## Built with
 * Django
 * PostgreSQL
 * DjangoRestFramework
-* Swagger
-* Redoc
 
 ## Authors
 * **Adrián Carayol Orenes** - [LinkedIn](https://www.linkedin.com/in/adrian-carayol-orenes-027016108/) 
