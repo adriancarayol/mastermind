@@ -44,6 +44,6 @@ steps:
 
 - script: |
     pushd '$(projectRoot)'
-    pylint mastermind
+    pylint api/ game/ code_peg/
   displayName: 'Running pylint'
 
