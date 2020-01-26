@@ -29,6 +29,10 @@ You will need dockers and dockers compose to be able to run the project easily.
 You can find out how to install both at the following links:
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [Docker compose](https://docs.docker.com/compose/install/)
 
+## Abstract structure
+This project was created under nginx, gunicorn and postgresql:
+![structure](./docs/images/structure.png)
+
 ### Deployment
 After that, you'll be able to run the API REST with the following commands:
 
