@@ -15,24 +15,33 @@ class UserView(APIView):
     """
     List all users or create a new one.
     """
+
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
 
     def post(self, request, *args, **kwargs):
-        logger.info(f'Request: {request} - format: {format}')
+        """
+        Function to handle POST requests.
+        Creates a new user.
+        """
+        logger.info(f"Request: {request}. args: {args}, kwargs: {kwargs}")
         serializer = UserSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
-            username = serializer.data.get('username')
-            logger.info(f'User with username: {username} has been created.')
+            username = serializer.data.get("username")
+            logger.info(f"User with username: {username} has been created.")
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        logger.info(f'Bad request with errors: {serializer.errors}')
+        logger.info(f"Bad request with errors: {serializer.errors}")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, *args, **kwargs):
-        logger.info(f'Request: {request} - format: {format}')
+        """
+        Method to handle GET requests
+        Returns all the users in the DB.
+        """
+        logger.info(f"Request: {request}. args: {args}, kwargs: {kwargs}")
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)

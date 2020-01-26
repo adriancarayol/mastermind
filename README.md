@@ -74,24 +74,49 @@ cf81984103dc        mastermind_api                     sh -c '/wait && ..."     
 docker logs cf81984103dc
 ```
 
-## Running the tests
+## Running the tests (Coverage included)
 ```bash
 $ .../mastermind/: pytest
 ```
-With coverage
-```bsah
-.../mastermind/: pytest --cov=.
+## Running pylint
+```bash
+$ .../mastermind/: pylint api/ code_peg/ game/
+```
+## Running black
+```bash
+$ .../mastermind/: black api/ code_peg/ game/
 ```
 
 ## Principal endpoints
-* Auth: http://host:port/auth/
+* Auth: http://host:port/auth/login
 * Users http://host:port/users
 * Games http://host:port/games
+* Games http://host:port/pegs
+
+## Examples
+### Creating a new game
+On `/api/users`, creates a new user (you'll need two):
+![create-user](./docs/images/create-user.png)
+On `/auth/login/` Authenticate with the created user:
+![auth-user](./docs/images/auth-user.png)
+Create the new game on `/api/games`:
+![new-game](./docs/images/new-game.png)
+Submit the game solution on `/api/pegs`
+![peg](./docs/images/pegs.png)
+With the other user, submit the another code peg.
+
+### Checking the historic game.
+On `/api/games` get the ID of the game.
+On `/api/games/<ID>/historic`, you'll will see all the code pegs submitted.
 
 ## Built with
 * Django
 * PostgreSQL
 * DjangoRestFramework
+
+## Code style
+* Black
+* Pylint
 
 ## Authors
 * **Adrián Carayol Orenes** - [LinkedIn](https://www.linkedin.com/in/adrian-carayol-orenes-027016108/) 

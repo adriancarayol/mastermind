@@ -1,5 +1,11 @@
+"""
+Module which contains the application configuration for code pegs module.
+"""
 from django.apps import AppConfig
 
 
 class CodePegConfig(AppConfig):
-    name = 'code_peg'
+    """
+    Class which contains the code pegs configuration module.
+    """
+    name = "code_peg"

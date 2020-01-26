@@ -1,5 +1,11 @@
+"""
+Module which contains the application configuration for game module.
+"""
 from django.apps import AppConfig
 
 
 class GameConfig(AppConfig):
-    name = 'game'
+    """
+    Class which contains the game configuration module.
+    """
+    name = "game"

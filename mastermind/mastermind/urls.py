@@ -18,7 +18,7 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/swagger')),
-    path('auth/', include('rest_auth.urls')),
-    path('api/', include('api.urls', namespace='api')),
+    path("", RedirectView.as_view(url="/swagger")),
+    path("auth/", include("rest_auth.urls")),
+    path("api/", include("api.urls", namespace="api")),
 ]
