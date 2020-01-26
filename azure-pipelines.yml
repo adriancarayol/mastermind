@@ -3,6 +3,11 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
+resources:
+  containers:
+    - container: pg11
+      image: postgres:11
+
 trigger:
 - master
 
@@ -10,13 +15,9 @@ pool:
   vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python35:
-      PYTHON_VERSION: '3.5'
-    Python36:
-      PYTHON_VERSION: '3.6'
     Python37:
       PYTHON_VERSION: '3.7'
-  maxParallel: 3
+  maxParallel: 1
 
 steps:
 - task: UsePythonVersion@0
