@@ -3,11 +3,6 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
-resources:
-  containers:
-    - container: pg11
-      image: postgres:11
-
 trigger:
 - master
 
@@ -49,11 +44,6 @@ steps:
 
 - script: |
     pushd '$(projectRoot)'
-    pytest
-  displayName: 'Run tests'
+    pylint mastermind
+  displayName: 'Running pylint'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFiles: "**/TEST-*.xml"
-    testRunTitle: 'Python $(PYTHON_VERSION)'
-  condition: succeededOrFailed()
